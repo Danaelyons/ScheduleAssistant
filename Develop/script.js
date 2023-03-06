@@ -1,5 +1,5 @@
 
-  $(document).ready(function () {
+  $(document).ready (function () {
     // Save Button operator
     $('.saveBtn').on('click', function () {
       // Setting Values
@@ -7,13 +7,13 @@
       let clock = $(this).parent().attr('id');
 
   // Save in local storage.
-  localStorage.setItem(utility, clock);
+  localStore.setItem(utility, clock);
   
   // notification to present what is saved in local storage by notifying user with, 'show me!'
   $('.notification').addClass('show me!');
 
   // Timer to remove show me! as class after six seconds.
-  setTime(function () {
+  setTiming(function () {
     $('.notification').removeClass('show me!');
   }, 6000);
 });
@@ -40,3 +40,17 @@ function updateOfHour() {
 }
 
 updateOfHour();
+
+// Making sure time is accurate.
+  setInterval(updateOfHour, 15000)
+  // load any saved data from localStorage
+  $('#hour-9 .description').val(localStore.getItem('hour-9'));
+  $('#hour-10 .description').val(localStore.getItem('hour-10'));
+  $('#hour-1 .description').val(localStore.getItem('hour-11'));
+  $('#hour-12 .description').val(localStore.getItem('hour-12'));
+  $('#hour-13 .description').val(localStore.getItem('hour-13'));
+  $('#hour-14 .description').val(localStore.getItem('hour-14'));
+  $('#hour-15 .description').val(localStore.getItem('hour-15'));
+  $('#hour-16 .description').val(localStore.getItem('hour-16'));
+  $('#hour-17 .description').val(localStore.getItem('hour-17'));
+
