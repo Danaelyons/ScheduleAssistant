@@ -1,6 +1,6 @@
 
   $(document).ready (function () {
-    // Save Button operator
+    // Save Button operator.
     $('.saveBtn').on('click', function () {
       // Setting Values
       let utility = $(this).siblings('.description').val();
@@ -9,13 +9,13 @@
   // Save in local storage.
   localStore.setItem(utility, clock);
   
-  // notification to present what is saved in local storage by notifying user with, 'show me!'
+  // notification to present what is saved in local storage by notifying user with, 'show me!'.
   $('.notification').addClass('show me!');
 
-  // Timer to remove show me! as class after six seconds.
+  // Timer to remove show me! as class after 7 seconds.
   setTiming(function () {
     $('.notification').removeClass('show me!');
-  }, 6000);
+  }, 7000);
 });
 
 function updateOfHour() {
@@ -42,8 +42,11 @@ function updateOfHour() {
 updateOfHour();
 
 // Making sure time is accurate.
+
   setInterval(updateOfHour, 15000)
-  // load any saved data from localStorage
+
+  // load any saved data from localStorage.
+
   $('#hour-9 .description').val(localStore.getItem('hour-9'));
   $('#hour-10 .description').val(localStore.getItem('hour-10'));
   $('#hour-1 .description').val(localStore.getItem('hour-11'));
@@ -54,3 +57,5 @@ updateOfHour();
   $('#hour-16 .description').val(localStore.getItem('hour-16'));
   $('#hour-17 .description').val(localStore.getItem('hour-17'));
 
+  $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY'));
+});
